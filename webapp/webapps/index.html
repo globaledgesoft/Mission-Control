@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./vendor/bootstrap/bootstrap.min.css">
+    <link href="./vendor/bootstrap/material-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>QCL-Music-Festival</title>
+</head>
+
+<body ng-app="mainPage" >
+    <div id="wrapper" class="wrapper" ng-controller="mainCtrl">
+        <nav id="sidenav" class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <i class="material-icons close-icon-sidebar" ng-click="closeSidenav()">close</i>
+                </div>
+            </div>
+            <div class="row sidenav_content">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_row1">
+                    <p class="sidenav_heading">Current Level</p>
+                    <canvas id="current_level"></canvas>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_row2">
+                    <p class="sidenav_heading"> Last Serviced </p>
+                    <p class="sidenav_value">{{last_service}}</p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_row3">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-md-10">
+                            <p class="sidenav_heading">Next Service Estimated </p>
+                        </div>
+                    </div>
+                    <p class="sidenav_value">{{next_service}}</p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_row4">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-md-10">
+                            <p class="sidenav_heading">Service Teams Deployed</p>
+                        </div>
+                    </div>
+                    <canvas id="service_teams"></canvas>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="row justify-content-end btn_row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="row align-items-end ">
+                        <div id="personDiv" class="col-lg-2 col-md-2">
+                            <img src="./images/man.png" id="person" draggable="true" draggable drop="handleDrop">  
+                        </div>
+                        <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                            <button type="button"class="btn deploy-btn" ng-click="deployTeam()" ng-style="deploy_btn">Deploy Service Team</button>
+                        </div>
+                        <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                            <button type="button" class="btn level-btn"  ng-click="showAllLevelToggle()" ng-style="level_btn">Show All Levels</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="tooltip in tooltips">
+                <div class="bin{{tooltip.id}}" id="binContainer">
+                    <img  class="bin_img" src="./images/bin.png" id="{{tooltip.id}}" data-toggle="tooltip" data-placement="bottom" title="{{tooltip.value}}%" ng-click="openDashboard($event)" droppable drop="handleDrop" alt="bin">
+                </div>
+            </div>
+
+                <!-- modal1 -->     
+            <div class="modal fade check_modal" id="checkSanitation" tabindex="-1" role="dialog" >
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img src="./images/Exclamation Mark.png">
+                            <p>Time to check out the sanitation situation.</p>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn check_modal_btn" data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal2 -->
+            <div class="modal fade check_modal" id="binClearedAlert" tabindex="-1" role="dialog" >
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img src="./images/Exclamation Mark.png">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10 col-md-10">
+                                    <p>We need you to deal with a situation <br> at center stage!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/popper.min.js" ></script>
+    <script src="./vendor/bootstrap/bootstrap.min.js" ></script>
+    
+    <script src="./vendor//angular/angular.min.js"></script>
+    <script src="./vendor/angular/angular-route.js"></script>
+    
+    <script src="./js/angualr/controllers/screenTransitions.js"></script>
+
+    <!-- chart js files -->
+    <script src="./vendor/chartjs/moment.js"></script>
+    <script src="./vendor/chartjs/Chart.min.js"></script>
+    <script src="./vendor/chartjs/label-plugin.js"></script>
+    </body>
+
+</html>

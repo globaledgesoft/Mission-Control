@@ -1,0 +1,317 @@
+
+@font-face {
+    font-family: qualcommMedium;
+    src: url("../vendor/font/QualcommNext-Medium.otf") format("opentype");
+}
+@font-face {
+    font-family: qualcommRegular;
+    src: url("../vendor/font/QualcommNext-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: qualcommThin;
+    src: url("../vendor/font/QualcommNext-Thin.otf") format("opentype");
+}
+ body{
+    background-image: url("../images/background-demo-1.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;  
+    background-size: cover;
+    overflow: hidden;
+}
+.check_modal .modal-footer{
+    border-top: 0px solid;
+    justify-content: center
+}
+.check_modal .check_modal_btn{
+    background-color: mediumaquamarine;
+    color: white;
+    border-radius: 3px;
+    padding: 0.3rem 3.5rem;
+    font-family:qualcommMedium;
+}
+.check_modal .modal-body{
+    text-align: center
+}
+.check_modal p{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: white;
+    font-family:qualcommMedium;
+    margin-bottom: 0rem;
+}
+.check_modal .material-icons{
+    color: white;
+    margin-top: 1rem;
+}
+.check_modal .modal-content{
+    background-color: rgba( 1, 10, 28,0.7);
+    border: 1px solid white;
+    padding: 1rem;
+    margin-right: 4rem;
+    margin-left: 4rem;
+}
+.deploy-btn{
+    font-size: 1.2rem;
+    border-radius: 1px;
+    color: white;
+    background-color: rgb(33, 90, 255);
+    margin-top: 1rem;
+    margin-left: -1rem;
+    margin-right: 1rem;
+    z-index: 0;
+    padding: 0.5rem 4rem;
+   /*  transition: all 2s; */
+    font-family:qualcommRegular;
+}
+.deploy-btn:focus{
+    box-shadow: none;
+}
+.deployActive{
+    background-color: white;
+    color: rgb(33, 90, 255);
+    border: 1px solid rgb(33, 90, 255); 
+}
+.level-btn{
+    font-size: 1.2rem;
+    padding: 0.5rem 4rem;
+    border-radius: 1px;
+    color: white;
+    background-color: rgb(55,60,75);
+    margin-top: 1rem;
+    margin-left: -1rem;
+    margin-right: 1rem;
+    z-index: 0;
+    width: 100%;
+    /* transition: all 2s; */
+    font-family:qualcommRegular;
+
+}
+.btn_row .level-btn:focus{
+    box-shadow: none;
+}
+
+.levelActive{
+    background-color: white;
+    color: rgb(55,60,75);
+    border: 1px solid rgb(55,60,75);
+}
+.btn_row{
+    width: 100%;
+    position: fixed;
+    bottom: 2rem;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+#sidenav {
+    width: 350px;
+    position: fixed;
+    top: 0;
+    left: -370px;
+    height: 100vh;
+    z-index: 999;
+    background: white;
+    transition: all 0.3s;
+    overflow-y: auto;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+#sidenav.active {
+    left: 0;
+}
+.content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.content.active {
+    width: 100%;
+}
+#sidenav .close-icon-sidebar{
+    float: right;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+    font-size: 1.25rem;
+    color: white;
+    cursor: pointer;
+    margin-right: -2rem;
+    margin-top: -1rem;
+}
+.sidenav_content{
+    text-align: center
+}
+#current_level{
+    margin-left: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+#service_teams{
+   /*  margin-bottom: 5rem; */
+    margin-top: 1rem;
+}
+#current_level,#service_teams{
+    margin-left: 0rem;
+}
+#sidenav .content_row1,#sidenav .content_row2,#sidenav .content_row3{
+    border-bottom: 1px solid black;
+    margin-bottom: 2rem;
+}
+.content_row1,.content_row2,.content_row3,.content_row4{
+    margin-top: 1rem
+}
+.sidenav_heading{
+    font-family:qualcommThin;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: rgba(0,0,0,0.7);
+}
+.sidenav_value{
+    color: mediumseagreen;
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: qualcommRegular;
+    margin-bottom: 2rem;
+}
+#sidenav.container-fluid{
+    padding: 1.5rem 2rem
+}
+
+#person{
+    display:none;
+    /* position: absolute; */
+    margin-left: 1.25rem;
+    z-index: 1002;
+}
+.arrow{
+    left: 18px;
+}
+.bs-tooltip-auto[x-placement^="bottom"] .arrow::before, .bs-tooltip-bottom .arrow::before{
+    border-bottom-color: white;
+    top:-1.4rem;
+    bottom: 2px;
+    border-width: 0px 0.1rem 0.1rem;
+    border-bottom-color: white;
+    border-top: 19px;
+}
+.tooltip .arrow::before{
+    content: '\005E';
+    margin-top: 0.7rem;
+    left: -0.4rem;
+    font-size: 1.5rem;
+}
+.tooltip .arrow{
+    width: 0rem;
+    height: 0.5rem;
+}
+.arrow{
+    left: 23px;
+}
+.tooltip-inner{
+    color: black;
+    background-color: white;
+    border-radius: 0;
+    font-family: qualcommRegular;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 0.5rem 1.5rem;
+    margin-top: -0.25rem;
+}
+img{
+    cursor: pointer;
+}
+.bs-tooltip-auto[x-placement^="bottom"] .arrow, .bs-tooltip-bottom .arrow{
+    top: -0.2rem;
+
+}
+.tooltip{
+    z-index: 1;
+}
+
+.green{
+    color:mediumaquamarine;
+}
+.red{
+    color:red;
+}
+.show{
+    display: inline;
+}
+.bin1{
+    margin-left: 50rem;
+    margin-top: 8rem;
+    color: white;
+  /*   transform: scale(0.5); */
+}
+.bin2{
+    margin-left: 28rem;
+    margin-top: -2rem;
+    color: white;
+   /*  transform: scale(0.5); */
+}
+.bin3{
+    margin-left: 49rem;
+    margin-top: 20rem;
+   /*  transform: scale(0.5); */
+}
+.bin4{
+    margin-left: 56rem;
+    margin-top: -11.5rem;
+   /*  transform: scale(0.5); */
+}
+.bin5{
+    margin-left: 30rem;
+    margin-top: -1rem;
+   /*  transform: scale(0.5); */
+}
+.bin6{
+    margin-left: 69rem;
+    margin-top: -34rem;
+    /* transform: scale(0.5); */
+}
+.bin7{
+    /* position: relative; */
+    margin-left: 71rem;
+    margin-top: 8rem;
+   /*  transform: scale(0.5); */
+}
+.bin8{
+    margin-left: 97rem;
+    margin-top: 9rem;
+   /*  transform: scale(0.5); */
+}
+.bin9{
+    margin-top: 6rem;
+    margin-left: 78rem;
+   /*  transform: scale(0.5); */
+}
+.bin10{
+    margin-top: -43rem;
+    margin-left: 104rem;
+   /*  transform: scale(0.5); */
+}
+.bin11{
+    margin-left: 105rem;
+    margin-top: 29rem;
+    /* transform: scale(0.5); */
+}
+
+/* .drag{
+    transform: scale(0.5)
+} */
+
+.person_fixed{
+    position: fixed;
+}
+.person_margin{
+    margin-left: 1.25rem!important;
+}
